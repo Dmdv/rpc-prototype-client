@@ -1,0 +1,24 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rpcx-client
+  labels:
+    app: rpcx-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rpcx-client
+  template:
+    metadata:
+      labels:
+        app: rpcx-client
+    spec:
+      containers:
+      - name: rpcx-client
+        image: rpcx-client:latest
+        envFrom:
+        - configMapRef:
+            name: rpcx-client-env

@@ -1,0 +1,8 @@
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rpcx-client-env
+data:
+  VERSION: latest
