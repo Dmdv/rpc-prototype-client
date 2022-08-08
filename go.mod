@@ -1,9 +1,9 @@
-module rpc-prototype-client
+module github.com/dmdv/rpc-prototype-client
 
 go 1.18
 
 require (
-	github.com/rpcxio/rpcx-examples v1.1.6
+	github.com/dmdv/rpc-prototype-server v0.0.0-20220808181858-4f0efb2ded41
 	github.com/smallnest/rpcx v1.7.8
 )
 

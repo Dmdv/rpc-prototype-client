@@ -3,11 +3,12 @@ package main
 import (
 	"context"
 	"flag"
-	example "github.com/rpcxio/rpcx-examples"
-	"github.com/smallnest/rpcx/client"
-	"github.com/smallnest/rpcx/protocol"
 	"log"
 	"time"
+
+	"github.com/dmdv/rpc-prototype-server/pkg"
+	"github.com/smallnest/rpcx/client"
+	"github.com/smallnest/rpcx/protocol"
 )
 
 var (
@@ -23,15 +24,16 @@ func main() {
 	opt.SerializeType = protocol.JSON
 
 	xclient := client.NewXClient("Arith", client.Failtry, client.RandomSelect, d, opt)
+	//goland:noinspection GoUnhandledErrorResult
 	defer xclient.Close()
 
-	args := example.Args{
+	args := pkg.Args{
 		A: 10,
 		B: 20,
 	}
 
 	for {
-		reply := &example.Reply{}
+		reply := &pkg.Reply{}
 		err := xclient.Call(context.Background(), "Mul", args, reply)
 		if err != nil {
 			log.Fatalf("failed to call: %v", err)
