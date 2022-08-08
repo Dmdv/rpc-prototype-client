@@ -19,6 +19,7 @@ func main() {
 	flag.Parse()
 
 	d, _ := client.NewPeer2PeerDiscovery("tcp@"+*addr, "")
+	//d, _ := client.NewDNSDiscovery("rpcx-server-demo-dns-service", "tcp", 8972, time.Minute)
 
 	opt := client.DefaultOption
 	opt.SerializeType = protocol.JSON
